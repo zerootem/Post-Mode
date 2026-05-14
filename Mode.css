@@ -1,0 +1,340 @@
+/* ==================== جعل الأداة في وضع الشاشة الكاملة دائمًا ==================== */
+.modweeb-generator{position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:0!important;width:100%!important;height:100vh!important;max-height:none!important;z-index:99999!important;border-radius:0!important;border:none!important;font-family:Geist,sans-serif;color:var(--bodyC,#222);line-height:1.5;font-size:.875rem;min-height:700px;display:flex;flex-direction:column;overflow:hidden;background:var(--contentB,#fff)}
+
+/* ==================== الأساسيات والمتغيرات العامة ==================== */
+*{margin:0;padding:0}
+::selection{background:var(--linkC,#2563eb);color:var(--white,#fff)}
+.modweeb-flex{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.modweeb-w-full{width:100%}
+.modweeb-mb-2{margin-bottom:.5rem}
+.modweeb-mt-2{margin-top:.5rem}
+.modweeb-list-items{display:flex;flex-direction:column;gap:.5rem}
+.modweeb-list-items .modweeb-flex{display:flex;gap:.25rem;align-items:center}
+.modweeb-list-items .modweeb-flex input{flex:1}
+
+/* ==================== تخصيص شريط التمرير للمولد ==================== */
+.modweeb-generator ::-webkit-scrollbar{width:6px;height:6px}
+.modweeb-generator ::-webkit-scrollbar-track{background:var(--contentB,#fff)}
+.modweeb-generator ::-webkit-scrollbar-thumb{background:var(--contentL,#e3e7ef);border-radius:3px}
+.modweeb-generator ::-webkit-scrollbar-thumb:hover{background:var(--notifC,#888)}
+
+/* ==================== حاوية شريط الأدوات الرئيسية ==================== */
+.modweeb-gen-toolbar{display:flex;align-items:center;gap:.75rem;padding:.75rem;border-bottom:1px solid var(--contentL,#e3e7ef);background:var(--contentB,#fff);flex-wrap:nowrap;overflow:visible}
+
+/* ==================== الأساسيات والمتغيرات العامة ==================== */
+*{margin:0;padding:0;box-sizing:border-box}
+::selection{background:var(--linkC,#2563eb);color:var(--white,#fff)}
+.modweeb-flex{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.modweeb-w-full{width:100%}
+.modweeb-mb-2{margin-bottom:.5rem}
+.modweeb-mt-2{margin-top:.5rem}
+.modweeb-list-items{display:flex;flex-direction:column;gap:.5rem}
+.modweeb-list-items .modweeb-flex{display:flex;gap:.25rem;align-items:center}
+.modweeb-list-items .modweeb-flex input{flex:1}
+
+/* ==================== المولد الرئيسي (وضع الشاشة الكاملة) ==================== */
+.modweeb-generator{position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:0!important;width:100%!important;height:100vh!important;max-height:none!important;z-index:99999!important;border-radius:0!important;border:none!important;font-family:Geist,sans-serif;color:var(--bodyC,#222);line-height:1.5;font-size:.875rem;min-height:700px;display:flex;flex-direction:column;overflow:hidden;background:var(--contentB,#fff)}
+
+/* ==================== تخصيص شريط التمرير ==================== */
+.modweeb-generator ::-webkit-scrollbar{width:6px;height:6px}
+.modweeb-generator ::-webkit-scrollbar-track{background:var(--contentB,#fff)}
+.modweeb-generator ::-webkit-scrollbar-thumb{background:var(--contentL,#e3e7ef);border-radius:3px}
+.modweeb-generator ::-webkit-scrollbar-thumb:hover{background:var(--notifC,#888)}
+
+/* ==================== الخطوط العامة للعناصر ==================== */
+.modweeb-gen-btn,.modweeb-gen-input,.modweeb-gen-select,.modweeb-gen-textarea,.modweeb-generator{font-family:Geist,sans-serif}
+
+/* ==================== نافذة الشاشة الكاملة (Modal) ==================== */
+.tocI{display:none}
+.tocI:checked~.fullscreen-modal{display:flex}
+.fullscreen-modal{display:none;position:fixed;left:0;right:0;bottom:0;height:100vh;z-index:99999;flex-direction:column;width:100%;box-sizing:border-box;top:0;background:var(--contentB,#fff)}
+.fullscreen-header{display:flex;justify-content:space-between;align-items:center;padding:.75rem 1.25rem;border-bottom:2px solid var(--contentL,#e3e7ef);box-shadow:0 2px 8px rgba(0,0,0,.05);background:var(--contentB,#fff)}
+.fullscreen-title{font-size:1rem;font-weight:600;display:flex;align-items:center;gap:.5rem;color:var(--bodyC,#222)}
+.fullscreen-content{flex:1;overflow-y:auto;padding:1.5625rem;background:var(--contentB,#fff)}
+
+/* ==================== أزرار نافذة الشاشة الكاملة ==================== */
+.fullscreen-btn{padding:.5rem 1rem;border-radius:.5rem;font-size:.75rem;font-weight:500;color:var(--bodyC,#222);gap:.5rem;background:var(--contentB,#fff)}
+.fullscreen-btn:hover{background:var(--linkC,#2563eb);color:var(--white,#fff);border-color:var(--linkC,#2563eb)}
+.fullscreen-btn.primary{background:var(--linkC,#2563eb)!important;border-color:var(--linkC,#2563eb)!important;color:var(--white,#fff)!important}
+.fullscreen-btn.primary:hover{background:var(--linkC,#2563eb)!important;border-color:var(--linkC,#2563eb)!important}
+.fullscreen-btn.primary svg{stroke:var(--white,#fff)!important}
+.fullscreen-btn.icon-only{border:1px solid var(--contentL,#e3e7ef);cursor:pointer;display:inline-flex;align-items:center;transition:.2s;width:30px!important;height:30px!important;padding:0!important;border-radius:50%!important;background:var(--contentBa,#f4f8ff)!important;color:var(--notifC,#888)!important;justify-content:center!important;gap:0!important;font-size:0!important}
+.fullscreen-btn.icon-only svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.8;fill:none}
+.fullscreen-btn.icon-only:hover{transform:translateY(-1px);box-shadow:0 2px 8px rgba(37,99,235,.3)}
+.fullscreen-btn.icon-only.active{background:var(--linkC,#2563eb)!important;border-color:var(--linkC,#2563eb)!important;color:var(--white,#fff)!important;cursor:default;pointer-events:none;transform:none;box-shadow:none}
+.fullscreen-btn.icon-only.active svg{stroke:var(--white,#fff)!important}
+.fullscreen-btn.icon-only.primary{background:var(--linkC,#2563eb)!important;color:var(--white,#fff)!important;border-color:var(--linkC,#2563eb)!important}
+.fullscreen-btn.icon-only.primary svg{stroke:var(--white,#fff)!important}
+.fullscreen-btn.icon-only.primary.active svg{stroke:var(--white,#fff)!important}
+.fullscreen-btn.icon-only.primary:hover{background:var(--linkC,#2563eb)!important}
+.fullscreen-btn.icon-only.primary:hover svg{stroke:var(--white,#fff)!important}
+.fullscreen-btn.icon-only.active:hover{background:var(--linkC,#2563eb)!important;transform:none;box-shadow:none;cursor:default}
+.fullscreen-btn.icon-only:hover:not(.active){background:var(--linkC,#2563eb)!important;border-color:var(--linkC,#2563eb)!important;color:var(--white,#fff)!important;transform:translateY(-1px);box-shadow:0 2px 8px rgba(37,99,235,.3)}
+.fullscreen-btn[title]{font-size:0}
+
+/* ==================== معاينة وكود الشاشة الكاملة ==================== */
+.fullscreen-code,.fullscreen-preview{max-height:80vh;margin:0 auto}
+.fullscreen-preview{padding:1.25rem;border:1px solid var(--contentL,#e3e7ef);border-radius:.75rem;overflow-y:auto;background:var(--contentB,#fff)}
+.fullscreen-code pre{background:var(--contentB,#fff)!important;color:var(--white)!important;padding:1.5625rem!important;border-radius:.75rem!important;font-size:.875rem!important;line-height:1.6!important;overflow-x:auto!important;white-space:pre-wrap!important;word-wrap:break-word!important;border:1px solid var(--contentL,#e2e8f0)}
+
+/* ==================== شريط الحالة ==================== */
+.modweeb-gen-status{font-size:8px;color:var(--notifC,#888);padding:2px 12px;background:var(--notifB,#f7f7f7);text-align:center;display:none;position:sticky;z-index:1000;width:100%;box-sizing:border-box;top:0;border-bottom:1px solid var(--contentL,#e3e7ef)}
+
+/* ==================== الهيدر وأزرار التحكم الرئيسية ==================== */
+.modweeb-gen-header{padding:.4rem 1rem;border-bottom:1px solid var(--contentL,#e3e7ef);box-shadow:0 1px 2px rgba(0,0,0,.05);background:var(--contentB,#fff)}
+.modweeb-gen-header-content{max-width:1920px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.modweeb-gen-header-actions{display:flex;gap:.3rem;align-items:center}
+.modweeb-gen-header-actions .modweeb-gen-btn{width:28px!important;height:28px!important}
+.modweeb-gen-header-actions .modweeb-gen-btn.primary{width:auto!important;padding:0 .75rem!important;gap:.375rem;font-size:.8rem;background:var(--linkC,#2563eb)!important;border-color:var(--linkC,#2563eb)!important;color:var(--white,#fff)!important}
+.modweeb-gen-header-actions .modweeb-gen-btn.primary:hover{background:var(--linkC,#2563eb)!important;border-color:var(--linkC,#2563eb)!important;color:var(--white,#fff)!important}
+.modweeb-gen-header-actions .modweeb-gen-btn.primary svg{width:16px;height:16px;stroke:var(--white,#fff)!important}
+.modweeb-gen-header-actions .modweeb-gen-btn.primary:hover svg{stroke:var(--white,#fff)!important}
+
+/* ==================== الأزرار العامة ==================== */
+.modweeb-gen-btn{padding:.375rem .75rem;border:1px solid var(--contentL,#e3e7ef);color:var(--bodyC,#222);border-radius:.375rem;cursor:pointer;font-size:.75rem;font-weight:500;transition:.1s;display:inline-flex;align-items:center;gap:.375rem;white-space:nowrap;background:var(--contentB,#fff)}
+.modweeb-gen-btn:hover{background:var(--contentBa,#f4f8ff);border-color:var(--linkC,#2563eb);color:var(--linkC,#2563eb)}
+.modweeb-gen-btn.primary{background:var(--linkC,#2563eb)!important;border-color:var(--linkC,#2563eb)!important;color:var(--white,#fff)!important}
+.modweeb-gen-btn.primary:hover{background:var(--linkC,#2563eb)!important;border-color:var(--linkC,#2563eb)!important;color:var(--white,#fff)!important}
+.modweeb-gen-btn.primary svg{stroke:var(--white,#fff)!important}
+.modweeb-gen-btn.primary:hover svg{stroke:var(--white,#fff)!important}
+.modweeb-gen-btn.secondary{background:var(--contentBa,#f4f8ff);border-color:var(--contentL,#e3e7ef)}
+.modweeb-gen-btn.danger{color:var(--danger,#ef4444)}
+.modweeb-gen-btn.sm{padding:.25rem .5rem;font-size:.7rem}
+.modweeb-gen-btn.active{background:var(--linkC,#2563eb);color:var(--white,#fff);border-color:var(--linkC,#2563eb)}
+.modweeb-gen-btn.icon-only{color:var(--notifC,#888)!important;border:1px solid var(--contentL,#e3e7ef)!important;border-radius:50%!important;width:30px!important;height:30px!important;display:flex!important;align-items:center!important;justify-content:center!important;cursor:pointer!important;transition:.2s!important;padding:0!important;background:var(--contentBa,#f4f8ff)!important;gap:0!important;font-size:0!important}
+.modweeb-gen-btn.icon-only svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8}
+.modweeb-gen-btn.icon-only:hover{transform:translateY(-1px);box-shadow:0 2px 8px rgba(37,99,235,.3);background:var(--linkC,#2563eb)!important;border-color:var(--linkC,#2563eb)!important;color:var(--white,#fff)!important}
+.modweeb-gen-btn.icon-only:hover svg{stroke:var(--white,#fff)!important}
+.modweeb-gen-btn.icon-only.danger:hover{background:var(--danger,#ef4444)!important;border-color:var(--danger,#ef4444)!important}
+
+/* ==================== حاوية شريط الأدوات الرئيسية ==================== */
+.modweeb-gen-toolbar{display:flex;align-items:center;gap:.75rem;padding:.75rem;border-bottom:1px solid var(--contentL,#e3e7ef);background:var(--contentB,#fff);flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch}
+.modweeb-gen-toolbar::-webkit-scrollbar{height:4px}
+.modweeb-gen-toolbar::-webkit-scrollbar-thumb{background:var(--contentL,#e3e7ef);border-radius:2px}
+.modweeb-gen-toolbar-group{display:flex;flex-wrap:nowrap;gap:.375rem;align-items:center;padding:0 .75rem 0 0;border-right:1px solid var(--contentL,#e3e7ef);flex-shrink:0}
+.modweeb-gen-toolbar-group:last-child{border-right:none}
+.modweeb-gen-toolbar .modweeb-gen-btn.tool-btn{min-width:45px!important;height:30px!important;padding:0 .35rem!important;font-size:.75rem!important;gap:4px!important;flex-shrink:0}
+.modweeb-gen-toolbar .modweeb-gen-btn.text-btn{width:auto!important;min-width:50px!important;height:30px!important;padding:0 10px!important;font-size:.75rem!important;border-radius:.375rem!important;gap:0!important;background:var(--contentBa,#f4f8ff)!important;color:var(--bodyC,#222)!important;border:1px solid var(--contentL,#e3e7ef)!important;white-space:nowrap;flex-shrink:0}
+.modweeb-gen-toolbar .modweeb-gen-btn.icon-only{width:25px!important;height:25px!important;padding:0!important;border-radius:50%!important;background:var(--contentBa,#f4f8ff)!important;color:var(--notifC,#888)!important;border:1px solid var(--contentL,#e3e7ef)!important;display:flex!important;align-items:center!important;justify-content:center!important;cursor:pointer!important;transition:.2s!important;flex-shrink:0}
+.modweeb-gen-toolbar .modweeb-gen-btn.icon-only svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.8;fill:none}
+.modweeb-gen-toolbar .modweeb-gen-btn.icon-only:hover{background:var(--linkC,#2563eb)!important;border-color:var(--linkC,#2563eb)!important}
+.modweeb-gen-toolbar .modweeb-gen-btn.icon-only:hover svg{stroke:var(--white,#fff)!important}
+.modweeb-gen-toolbar .modweeb-gen-input,.modweeb-gen-toolbar .modweeb-gen-select{width:auto!important;min-width:60px!important;max-width:100px!important;height:28px!important;padding:.15rem .25rem!important;font-size:.7rem!important}
+.modweeb-gen-toolbar .modweeb-gen-textarea{width:auto!important;min-width:100px!important;max-width:150px!important;height:28px!important;padding:.15rem .25rem!important;font-size:.7rem!important;resize:none!important}
+.modweeb-gen-toolbar-group .modweeb-gen-btn.icon-only:hover{background:var(--linkC,#2563eb)!important;border-color:var(--linkC,#2563eb)!important}
+.modweeb-gen-toolbar-group .modweeb-gen-btn.icon-only:hover svg{stroke:var(--white,#fff)!important}
+.modweeb-gen-toolbar-group .modweeb-gen-btn.icon-only.danger:hover{background:var(--danger,#ef4444)!important;border-color:var(--danger,#ef4444)!important}
+.modweeb-gen-toolbar-group .modweeb-gen-btn.icon-only.danger:hover svg{stroke:var(--white,#fff)!important}
+
+/* ==================== مساحة الكتل والمحرر ==================== */
+.modweeb-gen-main{display:flex;flex:1;overflow:hidden}
+.modweeb-gen-editor{flex:1;display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--contentL,#e3e7ef);max-width:720px;width:100%;max-height:60vh;margin:20px auto}
+.modweeb-gen-blocks{flex:1;overflow-y:auto;padding:.75rem;display:flex;flex-direction:column;gap:.5rem}
+.modweeb-gen-block{background:var(--contentB,#fff);border:1px solid var(--contentL,#e3e7ef);border-radius:.5rem;padding:.75rem;transition:.1s;position:relative;cursor:default}
+.modweeb-gen-block .modweeb-gen-btn.icon-only.sm{width:24px!important;height:24px!important;padding:0!important;border-radius:50%!important}
+.modweeb-gen-block .modweeb-gen-btn.icon-only.sm svg{width:14px;height:14px}
+.modweeb-gen-block-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.15rem!important}
+.modweeb-gen-block-type{font-size:.7rem;font-weight:600;color:var(--notifC,#888);text-transform:uppercase;letter-spacing:.5px;display:flex;gap:.25rem;align-items:center}
+.modweeb-gen-block-actions{display:flex;gap:.25rem}
+.modweeb-gen-block-content{display:flex;flex-direction:column;gap:.2rem!important}
+
+/* ==================== الشريط الجانبي والإحصائيات ==================== */
+.modweeb-gen-sidebar{width:360px;display:flex;flex-direction:column;border-left:1px solid var(--contentL,#e3e7ef);background:var(--contentB,#fff)}
+@media (max-width:1024px){.modweeb-gen-sidebar{display:none}}
+.modweeb-gen-sidebar-section{padding:.75rem;border-bottom:1px solid var(--contentL,#e3e7ef)}
+.modweeb-gen-sidebar-title{font-size:.7rem;font-weight:600;text-transform:uppercase;margin-bottom:.5rem;display:flex;gap:.25rem;align-items:center;color:var(--notifC,#888)}
+.modweeb-gen-sidebar-section .stats-grid{display:flex;flex-direction:column;gap:8px}
+.modweeb-gen-sidebar-section .stat-card{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:var(--contentBa,#f8fafc);border-radius:10px;transition:.2s;border:1px solid var(--contentL,#e2e8f0)}
+.modweeb-gen-sidebar-section .stat-card:hover{background:var(--contentB,#fff);border-color:var(--contentL,#e2e8f0)}
+.modweeb-gen-sidebar-section .stat-info{display:flex;align-items:center;gap:8px}
+.modweeb-gen-sidebar-section .stat-icon{width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:rgba(37,99,235,.1);border-radius:8px}
+.modweeb-gen-sidebar-section .stat-icon svg{width:16px;height:16px;stroke:var(--linkC,#2563eb);stroke-width:1.5}
+.modweeb-gen-sidebar-section .stat-label{font-size:.75rem;font-weight:500;color:var(--notifC,#64748b)}
+.modweeb-gen-sidebar-section .stat-value{font-size:.875rem;font-weight:600;color:var(--bodyC,#0f172a)}
+.modweeb-gen-sidebar-section .stat-value.highlight{color:var(--linkC,#2563eb);font-weight:700}
+
+/* ==================== علامات التبويب (معاينة/كود) ==================== */
+.modweeb-gen-tabs{display:flex;border-bottom:1px solid var(--contentL,#e3e7ef)}
+.modweeb-gen-tab-btn{flex:1;padding:.5rem;border:none;background:0 0;border-bottom:2px solid transparent;cursor:pointer;font-weight:500;font-size:.75rem;transition:.1s;display:flex;gap:.25rem;align-items:center;justify-content:center;color:var(--notifC,#888)}
+.modweeb-gen-tab-btn.active{color:var(--linkC,#2563eb);border-bottom-color:var(--linkC,#2563eb)}
+.modweeb-gen-tab-content{display:none}
+.modweeb-gen-tab-content.active{display:block}
+
+/* ==================== معاينة المحتوى في الشريط الجانبي ==================== */
+.modweeb-gen-preview{background:var(--contentB,#fff);border:1px solid var(--contentL,#e3e7ef);border-radius:.5rem;padding:.75rem;max-height:280px;overflow-y:auto;font-size:.75rem;line-height:1.5}
+.modweeb-gen-code{font-family:'Geist Mono',monospace;background:#1e293b;border:1px solid var(--contentL,#e3e7ef);border-radius:.5rem;padding:.625rem;font-size:.65rem;max-height:280px;overflow-y:auto;color:#e2e8f0;white-space:pre-wrap;word-wrap:break-word}
+
+/* ==================== حقول الإدخال العامة ==================== */
+.modweeb-gen-input,.modweeb-gen-select,.modweeb-gen-textarea{width:100%;padding:.375rem .5rem;border:1px solid var(--contentL,#e3e7ef);border-radius:.375rem;font-size:.8rem;background:var(--contentB,#fff);color:var(--bodyC,#222)}
+.modweeb-gen-select{appearance:auto!important;-webkit-appearance:auto!important;-moz-appearance:auto!important;cursor:pointer}
+.modweeb-gen-input:focus,.modweeb-gen-select:focus,.modweeb-gen-textarea:focus{outline:0;border-color:var(--linkC,#2563eb);box-shadow:0 0 0 2px rgba(37,99,235,.1)}
+.modweeb-gen-textarea{resize:vertical;min-height:30px!important;max-height:50px!important}
+
+/* ==================== معاينة المحتوى - عناصر المقال ==================== */
+.modweeb-preview-content .pIndent{text-indent:2em}
+.modweeb-preview-content .dropCap{font-size:3em;float:right;line-height:.8;margin-left:.1em}
+.modweeb-preview-content .pRef,.modweeb-preview-content figcaption{font-size:.9em;color:var(--notifC,#888)}
+.modweeb-preview-content img.full{width:100%;margin:0}
+.modweeb-preview-content figure{margin:1em 0;text-align:center}
+.modweeb-preview-content .psImg.grImg{display:grid;grid-template-columns:repeat(2,1fr);gap:5px}
+.modweeb-preview-content .psImg.grImg img,.modweeb-preview-content .videoYt iframe{width:100%;height:auto}
+.modweeb-preview-content .hdImg{position:relative}
+.modweeb-preview-content .hdImg .btImg{display:flex;flex-direction:column;align-items:center}
+.modweeb-preview-content .hdImg .btImg label{cursor:pointer;color:var(--linkC,#2563eb);text-decoration:underline}
+.modweeb-preview-content .hdImg input:checked~.psImg .shImg{display:block}
+.modweeb-preview-content .hdImg .shImg{display:none}
+.modweeb-preview-content .glImg{display:flex;overflow-x:auto;gap:10px}
+.modweeb-preview-content .glImg img{height:150px;width:auto}
+.modweeb-preview-content .glImg.h150 img{height:150px}
+.modweeb-preview-content .glImg.h200 img{height:200px}
+.modweeb-preview-content .glImg.h250 img{height:250px}
+.modweeb-preview-content .extL{color:var(--linkC,#2563eb);text-decoration:none}
+.modweeb-preview-content .extL.alt{background:var(--contentBa,#f4f8ff);padding:2px 5px;border-radius:.375rem}
+.modweeb-preview-content .extL.sec{border:1px solid var(--contentL,#e3e7ef);padding:2px 5px;border-radius:.375rem}
+.modweeb-preview-content .button{display:inline-block;padding:8px 16px;background:var(--linkC,#2563eb);color:var(--white,#fff);border-radius:.375rem;text-decoration:none}
+.modweeb-preview-content .button.ln{background:0 0;border:1px solid var(--linkC,#2563eb);color:var(--linkC,#2563eb)}
+
+/* ==================== صندوق التحميل ==================== */
+.modweeb-preview-content .dlBox{display:flex;align-items:center;gap:10px;border:1px solid var(--contentL,#e3e7ef);padding:10px;border-radius:.5rem}
+.modweeb-preview-content .dlBox .fT::before{content:attr(data-text);background:var(--contentBa,#f4f8ff);padding:4px 8px;border-radius:.375rem}
+.modweeb-preview-content .dlBox .fN{flex:1;display:flex;flex-direction:column}
+.modweeb-preview-content .dlBox .fS{color:var(--notifC,#888);font-size:.9em}
+
+/* ==================== الاقتباسات ==================== */
+.modweeb-preview-content blockquote{border-right:4px solid var(--linkC,#2563eb);padding:10px 20px;background:#f9f9f9;margin:1em 0}
+.modweeb-preview-content blockquote.s1{border-right:none;border-top:2px solid var(--linkC,#2563eb);border-bottom:2px solid var(--linkC,#2563eb);background:0 0}
+.modweeb-preview-content blockquote.s2{background:#eef;border-right:none;border-radius:.5rem}
+
+/* ==================== الملاحظات والتنبيهات ==================== */
+.modweeb-preview-content .note{background:#e7f3ff;padding:10px;border-right:3px solid var(--linkC,#2563eb)}
+.modweeb-preview-content .note.wr{background:var(--warning-light,#fef3c7);border-right-color:var(--warning,#f59e0b)}
+.modweeb-preview-content .alert{padding:10px;border:1px solid var(--contentL,#e3e7ef);border-radius:.375rem;margin:10px 0}
+.modweeb-preview-content .alert.outline{background:0 0;border-width:2px}
+.modweeb-preview-content .alert.info{background:#d1ecf1;border-color:#bee5eb;color:#0c5460}
+.modweeb-preview-content .alert.warning{background:var(--warning-light,#fef3c7);border-color:var(--warning,#f59e0b);color:#856404}
+.modweeb-preview-content .alert.success{background:var(--success-light,#d1fae5);border-color:var(--success,#10b981);color:#155724}
+.modweeb-preview-content .alert.error{background:#f8d7da;border-color:#f5c6cb;color:#721c24}
+
+/* ==================== الجداول ==================== */
+.modweeb-preview-content .table{overflow-x:auto}
+.modweeb-preview-content .table table{width:100%;border-collapse:collapse}
+.modweeb-preview-content .table.bordered td,.modweeb-preview-content .table.bordered th{border:1px solid var(--contentL,#e3e7ef);padding:8px}
+.modweeb-preview-content .table.noborder td,.modweeb-preview-content .table.noborder th{border:none}
+.modweeb-preview-content .table.sticky th{position:sticky;top:0;background:var(--contentB,#fff)}
+.modweeb-preview-content .table.primary th{background:var(--linkC,#2563eb);color:var(--white,#fff)}
+.modweeb-preview-content .table.warning th{background:var(--warning,#f59e0b);color:#000}
+.modweeb-preview-content .table.success th{background:var(--success,#10b981);color:var(--white,#fff)}
+.modweeb-preview-content .table.error th{background:var(--danger,#ef4444);color:var(--white,#fff)}
+.modweeb-preview-content .table.stripped tr:nth-child(odd){background:#f9f9f9}
+.modweeb-preview-content .table.hovered tr:hover{background:#e9ecef}
+.modweeb-preview-content .table.clr tr:nth-child(2n){background:var(--contentBa,#f4f8ff)}
+
+/* ==================== الخطوات ==================== */
+.modweeb-preview-content ol.steps{list-style:none;counter-reset:step}
+.modweeb-preview-content ol.steps li{counter-increment:step;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.modweeb-preview-content ol.steps li::before{content:counter(step);background:var(--linkC,#2563eb);color:var(--white,#fff);border-radius:50%;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;font-size:.8rem}
+
+/* ==================== الأكواد ==================== */
+.modweeb-preview-content pre{background:#1e293b;color:#e2e8f0;padding:10px;border-radius:.5rem;overflow-x:auto}
+.modweeb-preview-content code{font-family:'Geist Mono',monospace}
+.modweeb-preview-content kbd{background:#f0f0f0;border-radius:.375rem;padding:2px 4px;border:1px solid var(--contentL,#e3e7ef)}
+.modweeb-preview-content mark{background:#ff0}
+.modweeb-preview-content mark.block{display:block;padding:10px}
+.modweeb-preview-content mark.red{background:#faa}
+
+/* ==================== تبويبات الأكواد ==================== */
+.modweeb-preview-content .pre.tabs .preC1-1,.modweeb-preview-content .pre.tabs .preC1-2,.modweeb-preview-content .pre.tabs .preC1-3,.modweeb-preview-content .pre.tabs .preC1-4{display:none}
+.modweeb-preview-content .pre.tabs label{cursor:pointer;padding:5px 10px;background:#eee;margin:2px;border-radius:.375rem}
+.modweeb-preview-content #preT1-1:checked~.preC1-1,.modweeb-preview-content #preT1-2:checked~.preC1-2,.modweeb-preview-content #preT1-3:checked~.preC1-3,.modweeb-preview-content #preT1-4:checked~.preC1-4{display:block}
+
+/* ==================== الأكورديون والإخفاء ==================== */
+.modweeb-preview-content details.sp summary{cursor:pointer}
+.modweeb-preview-content details.sp[open] summary{font-weight:700}
+.modweeb-preview-content details.ac{border:1px solid var(--contentL,#e3e7ef);border-radius:.375rem;margin:5px 0}
+.modweeb-preview-content details.ac summary{padding:10px;background:var(--contentBa,#f4f8ff);cursor:pointer}
+.modweeb-preview-content details.ac[open] summary{border-bottom:1px solid var(--contentL,#e3e7ef)}
+.modweeb-preview-content details.ac.alt{border-color:var(--linkC,#2563eb)}
+.modweeb-preview-content .showH{border:1px solid #eee;padding:.5rem;border-radius:.5rem}
+
+/* ==================== المقالات المرتبطة ==================== */
+.modweeb-preview-content .aRel,.modweeb-preview-content .aToc{padding:10px}
+.modweeb-preview-content .pRelate{background:var(--contentBa,#f4f8ff);padding:10px;border-radius:.5rem}
+.modweeb-preview-content .pRelate ul{margin-right:20px}
+
+/* ==================== يوتيوب كسول ==================== */
+.modweeb-preview-content .lazyYt{position:relative;width:100%;background:#000;cursor:pointer}
+.modweeb-preview-content .lazyYt::before{content:"";display:block;padding-bottom:calc(100%/(var(--ratio)))}
+
+/* ==================== إخفاء عناصر التبويب الافتراضية ==================== */
+.modweeb-gen-tab-content,.modweeb-preview-content .hdImg .shImg,.modweeb-preview-content .pre.tabs .preC1-1,.modweeb-preview-content .pre.tabs .preC1-2,.modweeb-preview-content .pre.tabs .preC1-3,.modweeb-preview-content .pre.tabs .preC1-4{display:none}
+
+/* ==================== محرر الكود في وضع ملء الشاشة ==================== */
+.fullscreen-code-editor{width:100%;max-width:1000px;margin:0 auto}
+.fullscreen-code-editor textarea{width:100%;min-height:500px;max-height:70vh;background:var(--bodyB,#1e293b);color:var(--bodyC,#e2e8f0);font-family:'Geist Mono','Courier New',monospace;font-size:14px;line-height:1.6;padding:20px;border-radius:12px;border:1px solid var(--contentL,#e2e8f0);resize:vertical;direction:ltr;white-space:pre;overflow-x:auto;tab-size:2;box-sizing:border-box}
+.fullscreen-code-editor textarea:focus{outline:0;border-color:var(--linkC,#2563eb);box-shadow:0 0 0 3px var(--linkL,rgba(37,99,235,.1))}
+
+/* ==================== خلفيات العناصر الرئيسية ==================== */
+.modweeb-gen-block,.modweeb-gen-btn,.modweeb-gen-header,.modweeb-gen-sidebar,.modweeb-gen-toolbar,.modweeb-generator{background:var(--contentB,#fff)}
+
+/* ==================== تجاوب الشاشات الصغيرة ==================== */
+@media (max-width:768px){.fullscreen-header{padding:.625rem .9375rem}.fullscreen-content{padding:.9375rem}.fullscreen-stats{margin:1.25rem .9375rem;padding:1.25rem}.fullscreen-stats-item{padding:.9375rem;font-size:.875rem}.fullscreen-stats-value{font-size:1.2rem}}
+
+/* ==================== حركة التقدم (AI) ==================== */
+.spin{animation:.8s linear infinite spin}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes aiSlide{from{transform:translateX(-60%)}to{transform:translateX(160%)}}
+
+/* ==================== إزالة التصميم القديم لقسم النشر ==================== */
+/* يمكنك حذف هذا الجزء بالكامل من الكود الأصلي */
+/*
+.publish-horizontal-section{...}
+.publish-grid{...}
+.publish-field{...}
+.publish-input,.publish-select{...}
+.publish-btn{...}
+.publish-status{...}
+*/
+
+/* ==================== إزالة تصميم النوافذ المنبثقة القديمة ==================== */
+/* احذف success-popup و types-popup القديم إذا كنت ستستخدم bottom sheet */
+/*
+.success-popup{...}
+.success-popup .popup-header{...}
+...
+*/
+
+/* ==================== تصميم Bottom Sheet عام (يمكن إعادة استخدامه) ==================== */
+/* سنضيف كلاسات إضافية لتوحيد الشكل */
+.ai-bottom-sheet,.bb-sheet{position:fixed;bottom:0;left:0;right:0;max-height:90vh;overflow-y:auto;background:var(--contentB,#fff);border-top:1px solid var(--contentL,#ddd);box-shadow:0 -5px 20px rgba(0,0,0,0.15);z-index:10000;padding:16px 20px 24px;transform:translateY(100%);visibility:hidden;opacity:0;transition:0.3s ease;border-radius:16px 16px 0 0;box-sizing:border-box}.ai-bottom-sheet.show,.bb-sheet.show{transform:translateY(0);visibility:visible;opacity:1}.bb-sheet .sheet-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--contentL,#eee)}.bb-sheet .sheet-header h3{margin:0;font-size:1rem;font-weight:600;display:flex;align-items:center;gap:5px;color:var(--bodyC,#222)}.bb-sheet .sheet-close-btn{background:0 0;border:none;cursor:pointer;padding:4px;color:var(--notifC,#666);display:flex;align-items:center;justify-content:center}.bb-sheet .sheet-body{display:flex;flex-direction:column;gap:14px;margin-bottom:16px}.bb-sheet .sheet-field{display:flex;flex-direction:column;gap:4px}.bb-sheet .sheet-field label{display:block;font-size:0.8rem;font-weight:600;color:var(--notifC,#444);margin-bottom:0}.bb-sheet .sheet-field input,.bb-sheet .sheet-field textarea,.bb-sheet .sheet-field select{width:100%;padding:8px 10px;border:1px solid var(--contentL,#ddd);border-radius:8px;font-size:0.85rem;background:var(--contentB,#fff);color:var(--bodyC,#222);font-family:Geist,sans-serif}.bb-sheet .sheet-field input:focus,.bb-sheet .sheet-field textarea:focus,.bb-sheet .sheet-field select:focus{border-color:var(--linkC,#2563eb);outline:0;box-shadow:0 0 0 2px rgba(37,99,235,0.1)}.bb-sheet .sheet-footer{display:flex;justify-content:flex-end;gap:10px;padding-top:12px;border-top:1px solid var(--contentL,#eee)}.bb-sheet .sheet-footer .action-btn{padding:8px 20px;border-radius:10px;border:1px solid var(--contentL,#ddd);background:var(--contentB,#fff);cursor:pointer;font-weight:500;display:flex;align-items:center;gap:6px;transition:0.2s;font-size:0.85rem;font-family:Geist,sans-serif}.bb-sheet .sheet-footer .action-btn.primary{background:var(--linkC,#2563eb);color:#fff;border-color:var(--linkC,#2563eb)}.bb-sheet .sheet-footer .action-btn.cancel{background:var(--contentB,#fff);color:var(--bodyC,#222)}.bb-sheet .sheet-footer .action-btn:hover{opacity:0.9}.generic-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.25);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);z-index:9999;display:none}.generic-overlay.active{display:block}
+
+/* محرر الكود في وضع ملء الشاشة */
+.fullscreen-code-editor{width:100%;max-width:1000px;margin:0 auto}.fullscreen-code-editor textarea{width:100%;min-height:500px;max-height:70vh;background:var(--bodyB,#1e293b);color:var(--bodyC,#e2e8f0);font-family:'Geist Mono','Courier New',monospace;font-size:14px;line-height:1.6;padding:20px;border-radius:12px;border:1px solid var(--contentL,#e2e8f0);resize:vertical;direction:ltr;white-space:pre;overflow-x:auto;tab-size:2;box-sizing:border-box}.fullscreen-code-editor textarea:focus{outline:0;border-color:var(--linkC,#2563eb);box-shadow:0 0 0 3px var(--linkL,rgba(37,99,235,.1))}
+
+.spin{animation:.8s linear infinite spin}@keyframes spin{to{transform:rotate(360deg)}}.modweeb-gen-toolbar{border-bottom:1px solid var(--contentL,#e3e7ef);padding:.5rem;display:flex;flex-wrap:nowrap;gap:.5rem;align-items:center;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;max-width:100%}.modweeb-gen-toolbar::-webkit-scrollbar{height:2px}.modweeb-gen-toolbar::-webkit-scrollbar-thumb{background:var(--contentL,#e3e7ef);border-radius:2px}.modweeb-gen-toolbar-group{display:flex;flex-wrap:nowrap;gap:.375rem;align-items:center;padding:0 .75rem 0 0;border-:1px solid var(--contentL,#e3e7ef);flex-shrink:0}.modweeb-gen-toolbar-group:last-child{border-:none}.modweeb-gen-toolbar .modweeb-gen-btn.text-btn{width:auto!important;height:25px!important;padding:0 10px!important;font-size:.75rem!important;border-radius:.375rem!important;gap:0!important;min-width:50px!important;background:var(--contentBa,#f4f8ff)!important;color:var(--bodyC,#222)!important;border:1px solid var(--contentL,#e3e7ef)!important;white-space:nowrap;flex-shrink:0;display:inline-flex!important;align-items:center;justify-content:center}.modweeb-gen-toolbar .modweeb-gen-btn.icon-only{width:25px!important;height:25px!important;padding:0!important;border-radius:50%!important;background:var(--contentBa,#f4f8ff)!important;color:var(--notifC,#888)!important;border:1px solid var(--contentL,#e3e7ef)!important;display:flex!important;align-items:center!important;justify-content:center!important;cursor:pointer!important;transition:.2s!important;flex-shrink:0}.modweeb-gen-toolbar .modweeb-gen-btn.icon-only svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.8;fill:none}.modweeb-gen-block .modweeb-gen-btn.icon-only.sm{width:24px!important;height:24px!important;padding:0!important;border-radius:50%!important}.modweeb-gen-block .modweeb-gen-btn.icon-only.sm svg{width:14px;height:14px}
+
+/* ==================== طبقة الخلفية الزجاجية ==================== */
+.ai-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.25);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);z-index:9999;display:none}
+.ai-overlay.active{display:block}
+
+/* ==================== النافذة السفلية للذكاء الاصطناعي ==================== */
+.ai-bottom-sheet{position:fixed;bottom:0;left:0;right:0;max-height:90vh;overflow-y:auto;background:var(--contentB,#fff);border-top:1px solid var(--contentL,#ddd);box-shadow:0 -5px 20px rgba(0,0,0,.15);z-index:10000;padding:16px 20px 24px;transform:translateY(100%);visibility:hidden;opacity:0;transition:.3s ease;border-radius:16px 16px 0 0;box-sizing:border-box}
+.ai-bottom-sheet.show{transform:translateY(0);visibility:visible;opacity:1}
+
+/* ==================== هيدر النافذة السفلية ==================== */
+.sheet-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--contentL,#eee)}.sheet-header h3{margin:0;font-size:1rem;font-weight:600;display:flex;align-items:center;gap:5px}.sheet-close-btn{background:0 0;border:none;cursor:pointer;padding:4px;color:var(--notifC,#666);display:flex;align-items:center;justify-content:center}
+
+/* ==================== جسم النافذة السفلية ==================== */
+.sheet-body{display:flex;flex-direction:column;gap:14px;margin-bottom:16px}
+.sheet-field label{display:block;font-size:.8rem;font-weight:600;color:var(--notifC,#444);margin-bottom:0}
+.sheet-field input,.sheet-field textarea,.sheet-field select{width:100%;padding:5px 10px;border:1px solid var(--contentL,#ddd);border-radius:8px;font-size:.85rem;background:var(--contentB,#fff);color:var(--bodyC,#222)}
+.sheet-field input:focus,.sheet-field textarea:focus,.sheet-field select:focus{border-color:var(--linkC,#2563eb);outline:0;box-shadow:0 0 0 2px rgba(37,99,235,.1)}
+
+/* ==================== الأزرار الدائرية الصغيرة ==================== */
+.icon-only-btn{width:30px;height:30px;border:1px solid var(--contentL,#ddd);border-radius:50%;background:var(--contentB,#fff);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;color:var(--notifC,#666);transition:.2s;padding:0}
+.icon-only-btn:hover{background:var(--linkC,#2563eb);color:#fff;border-color:var(--linkC,#2563eb)}
+
+/* ==================== فوتر النافذة السفلية ==================== */
+.sheet-footer{display:flex;justify-content:flex-end;gap:10px;padding-top:12px;border-top:1px solid var(--contentL,#eee)}
+.action-btn{padding:4px 15px;border-radius:10px;border:1px solid var(--contentL,#ddd);background:var(--contentB,#fff);cursor:pointer;font-weight:500;display:flex;align-items:center;gap:0;transition:.2s;font-size:.85rem}
+.action-btn.primary{background:var(--linkC,#2563eb);color:#fff;border-color:var(--linkC,#2563eb)}
+.action-btn.cancel{background:var(--contentB,#fff);color:var(--bodyC,#222)}
